@@ -1,14 +1,22 @@
+import io
+
 import streamlit as st
 import streamlit.components.v1 as components
 from ipywidgets import embed
+import pyvista as pv
 from pyvista.jupyter.pv_pythreejs import convert_plotter
+
+pv.start_xvfb()
 
 
 def pyvista_streamlit(plotter):
-    grid = convert_plotter(plotter)
-    snippet = embed.embed_snippet(views=grid)
-    html = embed.html_template.format(title="", snippet=snippet)
-    components.html(html, width=900, height=500)
+    widget = convert_plotter(plotter)
+    state = embed.dependency_state(widget)
+    fp = io.StringIO()
+    embed.embed_minimal_html(fp, None, title="", state=state)
+    fp.seek(0)
+    snippet = fp.read()
+    components.html(snippet, width=900, height=500)
 
 
 with st.echo():

@@ -1,4 +1,3 @@
-https://github.com/pyvista/pyvista-wheels/raw/main/osmesa/vtk-9.1.0-cp38-cp38-linux_x86_64.whl
 pyvista
 ipywidgets
 pythreejs
