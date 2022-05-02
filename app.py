@@ -8,6 +8,8 @@ from pyvista.jupyter.pv_pythreejs import convert_plotter
 
 pv.start_xvfb()
 
+pv.set_plot_theme('document')
+
 
 def pyvista_streamlit(plotter):
     widget = convert_plotter(plotter)
