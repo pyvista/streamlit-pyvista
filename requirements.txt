@@ -1,0 +1,5 @@
+pyvista
+ipywidgets
+pythreejs
+streamlit
+click<=8.0.4  # streamlit compatibility
